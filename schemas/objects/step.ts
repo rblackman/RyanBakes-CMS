@@ -7,6 +7,13 @@ export default {
 	type: 'object',
 	fields: [
 		{
+			name: 'title',
+			title: 'Title',
+			type: 'string',
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
 			name: 'content',
 			title: 'Content',
 			type: 'array',
@@ -19,9 +26,10 @@ export default {
 	validation: (Rule: Rule<unknown>) => Rule.required(),
 	preview: {
 		select: {
+			title: 'title',
 			sections: 'content'
 		},
-		prepare({ sections }) {
+		prepare({ title, sections }) {
 			let subtitle = '';
 			let media: unknown | null = null;
 			const text = sections.filter(({ _type }) => _type === 'textSection');
@@ -36,7 +44,7 @@ export default {
 			}
 
 			return {
-				title: 'Step',
+				title,
 				subtitle,
 				media,
 				icon: FcCheckmark

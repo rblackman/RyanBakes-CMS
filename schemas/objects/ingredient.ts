@@ -33,6 +33,14 @@ export default {
 			type: 'string',
 			codegen: { required: false },
 			validation: (Rule: Rule<string>) => Rule.optional()
+		},
+		{
+			name: 'usedInSteps',
+			title: 'Used In Steps',
+			type: 'array',
+			of: [{ type: 'number' }],
+			codegen: { required: false },
+			validation: (Rule: Rule<string>) => Rule.optional()
 		}
 	],
 	codegen: { required: true },
@@ -41,11 +49,12 @@ export default {
 		select: {
 			name: 'name',
 			amount: 'amount',
-			unit: 'unit.abbreviation'
+			unit: 'unit.abbreviation',
+			usedInSteps: 'usedInSteps'
 		},
-		prepare({ name: title, amount, unit }) {
+		prepare({ name: title, amount, unit, usedInSteps }) {
 			console.log('unit', unit);
-			const subtitle = `${amount}${unit}`;
+			const subtitle = `${amount}${unit} (Step${usedInSteps.length > 1 ? 's' : ''}: ${usedInSteps.join(', ')})`;
 			return {
 				title,
 				subtitle,
