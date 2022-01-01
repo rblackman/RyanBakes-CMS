@@ -11,7 +11,7 @@
 		"sanity-codegen": "^0.9.8"
 	},
 	"description": "Sanity CMS Types and Client for Ryan Bakes",
-	"homepage": "https://ryanbakes.sanity.studio/dashboard",
+	"homepage": "https://ryan-bakes.sanity.studio/dashboard",
 	"keywords": [
 		"sanity"
 	],
