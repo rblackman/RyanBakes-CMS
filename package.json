@@ -1,0 +1,63 @@
+{
+  "author": {
+    "name": "Ryan Blackman",
+    "url": "https://github.com/rblackman"
+  },
+  "browser": "schema.ts",
+  "bugs": {
+    "url": "https://github.com/rblackman/RyanBakes-CMS/issues"
+  },
+  "dependencies": {
+    "@sanity/base": "^2.23.2",
+    "@sanity/color-input": "^2.23.2",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.23.2",
+    "@sanity/dashboard": "^2.23.2",
+    "@sanity/default-layout": "^2.23.2",
+    "@sanity/default-login": "^2.23.2",
+    "@sanity/desk-tool": "^2.23.2",
+    "@sanity/types": "^2.23.2",
+    "@sanity/vision": "^2.23.2",
+    "prop-types": "^15.8.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "sanity-plugin-dashboard-widget-vercel": "^1.1.0",
+    "styled-components": "^5.2.0"
+  },
+  "description": "Sanity CMS for ryan-bakes.com",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "caniuse-lite": "^1.0.30001292",
+    "eslint": "<8.0.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.4.1",
+    "react-is": "^17.0.2",
+    "sanity-codegen": "^0.9.5",
+    "webpack": "^5.58.2"
+  },
+  "homepage": "https://github.com/rblackman/RyanBakes-CMS",
+  "keywords": [
+    "sanity"
+  ],
+  "license": "UNLICENSED",
+  "main": "package.json",
+  "name": "@ryan-blackman/ryan-bakes-cms",
+  "private": false,
+  "scripts": {
+    "build": "sanity build",
+    "codegen": "sanity-codegen && prettier --write schema-dist/index.ts",
+    "lint": "eslint . --fix --color",
+    "start": "sanity start"
+  },
+  "version": "1.0.0"
+}

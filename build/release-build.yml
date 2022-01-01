@@ -1,0 +1,58 @@
+name: $(Major).$(Minor)$(Patch)
+
+trigger:
+  branches:
+    include:
+      - main
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  Major: '1'
+  Minor: '0'
+  Patch: $[counter(variables['Minor'], 1)]
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Install Node.js'
+
+  - script: yarn global add @sanity/cli
+    displayName: 'Install Sanity CLI'
+
+  - script: yarn install --frozen-lockfile  --non-interactive
+    displayName: 'Install Dependencies'
+
+  - script: sanity deploy
+    displayName: 'Build and Deploy Sanity Studio'
+    env:
+      SANITY_AUTH_TOKEN: $(SanityDeployAPIToken)
+      SANITY_STUDIO_API_PROJECT_ID: $(SanityProjectId)
+      SANITY_STUDIO_API_DATASET: $(SanityDataset)
+
+  - script: yarn codegen
+    displayName: 'Schema Package Codegen'
+
+  - script: tsc --project "schema-dist\tsconfig.json"
+    displayName: 'Generating Schema Types'
+
+  - task: Npm@1
+    displayName: 'NPM Version'
+    inputs:
+      command: 'custom'
+      workingDir: $(Build.SourcesDirectory)/schema-dist
+      customCommand: 'version $(Major).$(Minor).$(Patch) --no-git-tag-version --allow-same-version'
+      customRegistry: 'useFeed'
+      customFeed: 'Ryan Bakes/RyanBakes'
+
+  - task: Npm@1
+    displayName: 'NPM Publish Schema Package'
+    inputs:
+      command: publish
+      workingDir: $(Build.SourcesDirectory)/schema-dist
+      publishRegistry: useFeed
+      publishFeed: 'Ryan Bakes/RyanBakes'

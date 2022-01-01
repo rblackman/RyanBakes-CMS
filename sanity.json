@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "project": {
+    "name": "Ryan Bakes"
+  },
+  "api": {
+    "projectId": "t4mzu70v",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/dashboard",
+    "@sanity/desk-tool",
+    "@sanity/color-input",
+    "@sanity/vision",
+    "dashboard-widget-vercel"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./config/deskStructure/index.ts"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./config/dashboard/index.ts"
+    }
+  ]
+}
