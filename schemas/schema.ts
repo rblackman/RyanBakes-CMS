@@ -7,9 +7,12 @@ import siteConfig from './documents/siteConfig';
 import unit from './documents/unit';
 import blockContent from './objects/blockContent';
 import externalLink from './objects/externalLink';
+import imageWithAlt from './objects/imageWithAlt';
 import ingredient from './objects/ingredient';
+import inlineImage from './objects/inlineImage';
 import portableText from './objects/portableText';
 import simplePortableText from './objects/simplePortableText';
+import step from './objects/step';
 import textSection from './objects/textSection';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -24,11 +27,14 @@ export default createSchema({
 		externalLink,
 		portableText,
 		simplePortableText,
+		imageWithAlt,
 		ingredient,
+		inlineImage,
+		step,
 		textSection,
 		// documents
-		unit,
+		recipe,
 		siteConfig,
-		recipe
+		unit
 	])
 });

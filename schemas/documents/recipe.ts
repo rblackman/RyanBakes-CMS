@@ -32,6 +32,13 @@ export default {
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		},
 		{
+			name: 'picture',
+			title: 'Picture',
+			type: 'imageWithAlt',
+			codegen: { required: true },
+			validation: (Rule: Rule<unknown>) => Rule.required()
+		},
+		{
 			name: 'ingredients',
 			type: 'array',
 			title: 'Ingredients',
@@ -42,23 +49,24 @@ export default {
 			]
 		},
 		{
+			name: 'steps',
+			type: 'array',
+			title: 'Steps',
+			of: [
+				{
+					type: 'step'
+				}
+			]
+		},
+		{
 			name: 'openGraphImage',
-			type: 'image',
+			type: 'imageWithAlt',
 			title: 'Open Graph Image',
 			description: 'Image to be shown on social media.',
 			fieldset: 'metadata',
 			options: { hotspot: true },
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
-		},
-		{
-			name: 'openGraphImageAlt',
-			type: 'string',
-			title: 'Open Graph Image Alt Text',
-			description: 'Alt text for open graph image (max 400 characters)',
-			fieldset: 'metadata',
-			codegen: { required: true },
-			validation: (Rule: Rule<string>) => Rule.required().max(400)
 		},
 		{
 			name: 'disallowRobots',
@@ -72,7 +80,7 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			media: 'openGraphImage',
+			media: 'picture',
 			slug: 'slug.current'
 		},
 		prepare({ title, media, slug }) {

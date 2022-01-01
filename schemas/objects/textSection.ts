@@ -1,6 +1,7 @@
 import { Block } from '@sanity/types/dist/dts';
 import { FcTemplate } from 'react-icons/fc';
 import Rule from '../../@types/sanityRule';
+import blockToString from '../../helpers/blockToString';
 
 export default {
 	type: 'object',
@@ -20,12 +21,7 @@ export default {
 			text: 'text'
 		},
 		prepare({ text }: { text: Block[] }) {
-			const subtitle = text
-				.filter(({ _type }) => _type === 'block')
-				.reduce((prev, { children }) => {
-					return prev.concat(children.map(({ text }) => text));
-				}, new Array<string>())
-				.join(' ');
+			const subtitle = blockToString(text);
 			return {
 				title: 'Text Section',
 				subtitle,

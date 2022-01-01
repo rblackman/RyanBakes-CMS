@@ -10,6 +10,7 @@ export interface Context {
 	document: {
 		content: DocumentContent;
 	};
+	parent: { [key: string]: unknown };
 }
 
 type SchemaType = 'https' | 'http' | 'mailto' | 'tel';
