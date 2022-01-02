@@ -8,8 +8,12 @@ export default {
 	icon: FcList,
 	fieldsets: [
 		{
-			title: 'SEO & metadata',
+			title: 'Recipe Metadata',
 			name: 'metadata'
+		},
+		{
+			title: 'SEO',
+			name: 'seo'
 		}
 	],
 	fields: [
@@ -39,6 +43,33 @@ export default {
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		},
 		{
+			name: 'preheat',
+			title: 'Preheat',
+			type: 'number',
+			description: 'Oven preheat temperature in fahrenheit',
+			codegen: { required: false },
+			validation: (Rule: Rule<number>) => Rule.optional(),
+			fieldset: 'metadata'
+		},
+		{
+			name: 'bakeTime',
+			title: 'Bake Time',
+			type: 'number',
+			description: 'Cook time in minutes (i.e. Time under heat)',
+			codegen: { required: false },
+			validation: (Rule: Rule<number>) => Rule.optional(),
+			fieldset: 'metadata'
+		},
+		{
+			name: 'totalTime',
+			title: 'Total Time',
+			type: 'number',
+			description: 'Total time (start to finish) in minutes',
+			codegen: { required: true },
+			validation: (Rule: Rule<number>) => Rule.required(),
+			fieldset: 'metadata'
+		},
+		{
 			name: 'ingredients',
 			type: 'array',
 			title: 'Ingredients',
@@ -63,7 +94,7 @@ export default {
 			type: 'imageWithAlt',
 			title: 'Open Graph Image',
 			description: 'Image to be shown on social media.',
-			fieldset: 'metadata',
+			fieldset: 'seo',
 			options: { hotspot: true },
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
@@ -74,7 +105,7 @@ export default {
 			title: 'Disallow in robots.txt',
 			description: 'Hide this route for search engines',
 			initialValue: false,
-			fieldset: 'metadata'
+			fieldset: 'seo'
 		}
 	],
 	preview: {
