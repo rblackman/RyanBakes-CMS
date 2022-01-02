@@ -70,6 +70,15 @@ export default {
 			fieldset: 'metadata'
 		},
 		{
+			name: 'serves',
+			title: 'Serves',
+			type: 'string',
+			description: 'Input in format N-N (e.g. 2-4)',
+			codegen: { required: false },
+			validation: (Rule: Rule<string>) => Rule.optional(),
+			fieldset: 'metadata'
+		},
+		{
 			name: 'ingredients',
 			type: 'array',
 			title: 'Ingredients',
