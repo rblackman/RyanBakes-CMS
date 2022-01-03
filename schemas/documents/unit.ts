@@ -60,6 +60,15 @@ export default {
 			initialValue: 'Decimal',
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'exempt',
+			type: 'boolean',
+			title: 'Exempt',
+			description: 'Do not show ingredients.',
+			initialValue: false,
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
 		}
 	],
 	orderings: [

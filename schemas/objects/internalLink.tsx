@@ -21,7 +21,7 @@ export default {
 	name: 'internalLink',
 	type: 'reference',
 	description: 'Locate a document you want to link to',
-	to: [{ type: 'page' }],
+	to: [{ type: 'recipe' }],
 	blockEditor: {
 		icon: FcLink,
 		render: InternalLinkRender
