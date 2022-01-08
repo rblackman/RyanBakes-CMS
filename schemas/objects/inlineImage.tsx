@@ -52,6 +52,26 @@ export default {
 			initialValue: 'Block',
 			codegen: { required: true },
 			validation: (Rule: Rule<unknown>) => Rule.required()
+		},
+		{
+			name: 'aspectRatio',
+			type: 'string',
+			title: 'Aspect Ratio',
+			description: 'Format should be w/h (e.g. 16/9)',
+			codegen: { required: false },
+			validation: (Rule: Rule<string>) =>
+				Rule.optional().custom((val) => {
+					if (!val || val.length === 0) {
+						// optional
+						return true;
+					}
+
+					const regex = /^[0-9]+\/[0-9]+$/;
+					if (regex.test(val)) {
+						return true;
+					}
+					return 'Please use the format "width/height"';
+				})
 		}
 	],
 	preview: {
