@@ -43,10 +43,10 @@ export default {
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		},
 		{
-			name: 'cometary',
-			title: 'Cometary',
+			name: 'commentary',
+			title: 'Commentary',
 			type: 'portableText',
-			description: 'Cometary about this recipe to display at the top of the page.',
+			description: 'Commentary about this recipe to display at the top of the page.',
 			codegen: { required: true },
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		},
