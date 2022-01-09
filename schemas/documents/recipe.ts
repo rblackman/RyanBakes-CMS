@@ -109,6 +109,26 @@ export default {
 			validation: (Rule: Rule<string>) => Rule.required()
 		},
 		{
+			name: 'ogDescription',
+			type: 'text',
+			title: 'Open Graph Description',
+			description: 'Page description to show when shared on social media. 110-300 characters depending on where it is being shared.',
+			fieldset: 'seo',
+			options: { hotspot: true },
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'description',
+			type: 'text',
+			title: 'description',
+			description: 'HTML description. Should be ~200 characters.',
+			fieldset: 'seo',
+			options: { hotspot: true },
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
 			name: 'disallowRobots',
 			type: 'boolean',
 			title: 'Disallow in robots.txt',
