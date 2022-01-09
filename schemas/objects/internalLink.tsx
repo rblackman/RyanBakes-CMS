@@ -1,20 +1,11 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { FcLink } from 'react-icons/fc';
-import Rule from '../../@types/sanityRule';
 
 const InternalLinkRender = ({ children }) => (
 	<span>
-		{children}{' '}
-		<span role="img" aria-label="link">
-			<FcLink />
-		</span>
+		{children} <FcLink />
 	</span>
 );
-
-InternalLinkRender.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
-};
 
 export default {
 	title: 'Internal link to another document',
@@ -25,7 +16,5 @@ export default {
 	blockEditor: {
 		icon: FcLink,
 		render: InternalLinkRender
-	},
-	codegen: { required: true },
-	validation: (Rule: Rule<unknown>) => Rule.required()
+	}
 };

@@ -43,6 +43,14 @@ export default {
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		},
 		{
+			name: 'cometary',
+			title: 'Cometary',
+			type: 'portableText',
+			description: 'Cometary about this recipe to display at the top of the page.',
+			codegen: { required: true },
+			validation: (Rule: Rule<unknown>) => Rule.required()
+		},
+		{
 			name: 'preheat',
 			title: 'Preheat',
 			type: 'number',
@@ -97,6 +105,22 @@ export default {
 					type: 'step'
 				}
 			]
+		},
+		{
+			name: 'tags',
+			type: 'array',
+			title: 'Tags',
+			description: 'Tags this recipe falls under.',
+			of: [
+				{
+					type: 'string'
+				}
+			],
+			options: {
+				layout: 'tags'
+			},
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.unique().required()
 		},
 		{
 			name: 'openGraphImage',

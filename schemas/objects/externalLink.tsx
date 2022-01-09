@@ -1,20 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { FcGlobe } from 'react-icons/fc';
 import Rule from '../../@types/sanityRule';
 
 const LinkRender = ({ children }) => (
 	<span>
-		{children}{' '}
-		<span role="img" aria-label="web">
-			<FcGlobe />
-		</span>
+		{children} <FcGlobe />
 	</span>
 );
-
-LinkRender.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
-};
 
 export default {
 	title: 'URL',
@@ -32,8 +24,6 @@ export default {
 				})
 		}
 	],
-	codegen: { required: true },
-	validation: (Rule: Rule<unknown>) => Rule.required(),
 	blockEditor: {
 		icon: FcGlobe,
 		render: LinkRender

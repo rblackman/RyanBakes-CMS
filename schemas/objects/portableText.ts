@@ -19,7 +19,7 @@ export default {
 					{ title: 'Strong', value: 'strong' },
 					{ title: 'Emphasis', value: 'em' }
 				],
-				annotations: [{ type: 'externalLink' }]
+				annotations: [{ type: 'internalLink' }, { type: 'externalLink' }]
 			}
 		}
 	],

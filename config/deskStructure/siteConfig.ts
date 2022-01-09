@@ -10,6 +10,5 @@ export default S.listItem()
 			.items([
 				S.listItem().title('Global Settings').icon(FcGlobe).child(S.document().schemaType('siteConfig').documentId('siteConfig')),
 				S.listItem().title('Measurements').icon(FcRuler).child(S.documentTypeList('unit').title('All Units'))
-				//S.listItem().icon(FcTodoList).title('Navigation').child(S.documentTypeList('navItem').title('Nav Items'))
 			])
 	);
