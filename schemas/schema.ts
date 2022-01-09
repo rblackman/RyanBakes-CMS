@@ -9,7 +9,6 @@ import externalLink from './objects/externalLink';
 import imageWithAlt from './objects/imageWithAlt';
 import ingredient from './objects/ingredient';
 import inlineImage from './objects/inlineImage';
-import internalLink from './objects/internalLink';
 import portableText from './objects/portableText';
 import simplePortableText from './objects/simplePortableText';
 import step from './objects/step';
@@ -23,7 +22,6 @@ export default createSchema({
 	// to the ones provided by any plugins that are installed
 	types: schemaTypes.concat([
 		// objects
-		internalLink,
 		externalLink,
 		portableText,
 		simplePortableText,
