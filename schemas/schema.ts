@@ -5,7 +5,6 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import recipe from './documents/recipe';
 import siteConfig from './documents/siteConfig';
 import unit from './documents/unit';
-import blockContent from './objects/blockContent';
 import externalLink from './objects/externalLink';
 import imageWithAlt from './objects/imageWithAlt';
 import ingredient from './objects/ingredient';
@@ -24,7 +23,6 @@ export default createSchema({
 	// to the ones provided by any plugins that are installed
 	types: schemaTypes.concat([
 		// objects
-		blockContent,
 		internalLink,
 		externalLink,
 		portableText,
