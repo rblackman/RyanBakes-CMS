@@ -41,14 +41,6 @@ export default {
 			of: [{ type: 'number' }],
 			codegen: { required: false },
 			validation: (Rule: Rule<string>) => Rule.optional()
-		},
-		{
-			name: 'linedRecipe',
-			title: 'Linked Recipe',
-			type: 'internalLink',
-			description: 'If this ingredient is another recipe, link to it here.',
-			codegen: { required: false },
-			validation: (Rule: Rule<string>) => Rule.optional()
 		}
 	],
 	codegen: { required: true },
