@@ -1,4 +1,14 @@
+import React from 'react';
+import { FaDivide } from 'react-icons/fa';
 import Rule from '../../@types/sanityRule';
+
+const fractionRender = ({ children }) => {
+	return (
+		<span>
+			[{children} <FaDivide />]
+		</span>
+	);
+};
 
 export default {
 	title: 'Portable Text',
@@ -17,7 +27,15 @@ export default {
 			marks: {
 				decorators: [
 					{ title: 'Strong', value: 'strong' },
-					{ title: 'Emphasis', value: 'em' }
+					{ title: 'Emphasis', value: 'em' },
+					{
+						title: 'Fraction',
+						value: 'fraction',
+						blockEditor: {
+							icon: FaDivide,
+							render: fractionRender
+						}
+					}
 				],
 				annotations: [{ type: 'externalLink' }]
 			}
