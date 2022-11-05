@@ -19,7 +19,7 @@ export default {
 			type: 'array',
 			of: [{ type: 'inlineImage' }, { type: 'textSection' }],
 			codegen: { required: true },
-			validation: (Rule: Rule<string>) => Rule.required()
+			validation: (Rule: Rule<string>) => Rule.required().min(1)
 		}
 	],
 	codegen: { required: true },

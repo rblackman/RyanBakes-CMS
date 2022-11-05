@@ -14,6 +14,7 @@ import imageWithAlt from './objects/imageWithAlt';
 import ingredient from './objects/ingredient';
 import inlineImage from './objects/inlineImage';
 import portableText from './objects/portableText';
+import recipePreview from './objects/recipePreview';
 import simplePortableText from './objects/simplePortableText';
 import step from './objects/step';
 import textSection from './objects/textSection';
@@ -31,6 +32,7 @@ export default createSchema({
 		simplePortableText,
 		imageWithAlt,
 		ingredient,
+		recipePreview,
 		inlineImage,
 		step,
 		textSection,

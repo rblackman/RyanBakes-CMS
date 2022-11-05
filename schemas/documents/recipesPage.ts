@@ -16,6 +16,14 @@ export default {
 			validation: (Rule: Rule<string>) => Rule.required()
 		},
 		{
+			name: 'intro',
+			title: 'Intro',
+			type: 'portableText',
+			description: 'Intro text to show before featured recipes',
+			codegen: { required: true },
+			validation: (Rule: Rule<unknown>) => Rule.required()
+		},
+		{
 			name: 'featuredRecipe',
 			title: 'Featured Tag',
 			type: 'reference',

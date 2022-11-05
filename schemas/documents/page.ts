@@ -26,6 +26,14 @@ export default {
 			description: 'Page slug',
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'content',
+			title: 'Content',
+			type: 'array',
+			of: [{ type: 'inlineImage' }, { type: 'textSection' }, { type: 'recipePreview' }],
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
 		}
 	]
 };
