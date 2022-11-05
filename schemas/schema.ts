@@ -2,6 +2,8 @@
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import createSchema from 'part:@sanity/base/schema-creator';
+import navItem from './documents/navItem';
+import page from './documents/page';
 import recipe from './documents/recipe';
 import siteConfig from './documents/siteConfig';
 import unit from './documents/unit';
@@ -33,6 +35,8 @@ export default createSchema({
 		// documents
 		recipe,
 		siteConfig,
-		unit
+		unit,
+		page,
+		navItem
 	])
 });

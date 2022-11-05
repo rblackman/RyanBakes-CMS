@@ -24,11 +24,30 @@ export default {
 			validation: (Rule: Rule<string>) => Rule.required()
 		},
 		{
-			title: 'Site Language',
 			name: 'lang',
+			title: 'Site Language',
 			type: 'string',
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'mainNav',
+			title: 'Main Nav',
+			type: 'array',
+			of: [
+				{
+					type: 'reference',
+					to: [{ type: 'navItem' }]
+				}
+			],
+			codegen: { required: true },
+			validation: (rule: Rule<unknown>) => rule.required().min(1)
+		},
+		{
+			name: 'homepage',
+			title: 'Homepage',
+			type: 'reference',
+			to: [{ type: 'page' }]
 		}
 	]
 };
