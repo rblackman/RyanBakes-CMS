@@ -19,7 +19,7 @@ export default {
 			name: 'page',
 			title: 'Page',
 			type: 'reference',
-			to: [{ type: 'page' }],
+			to: [{ type: 'page' }, { type: 'tagsPage' }, { type: 'recipesPage' }],
 			codegen: { required: true },
 			validation: (Rule: Rule<unknown>) => Rule.required()
 		}

@@ -14,6 +14,18 @@ export default {
 			description: 'Title of the page.',
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'slug',
+			title: 'Slug',
+			type: 'slug',
+			options: {
+				source: 'title',
+				maxLength: 96
+			},
+			description: 'Page slug',
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
 		}
 	]
 };

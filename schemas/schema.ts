@@ -5,7 +5,9 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import navItem from './documents/navItem';
 import page from './documents/page';
 import recipe from './documents/recipe';
+import recipesPage from './documents/recipesPage';
 import siteConfig from './documents/siteConfig';
+import tagsPage from './documents/tagsPage';
 import unit from './documents/unit';
 import externalLink from './objects/externalLink';
 import imageWithAlt from './objects/imageWithAlt';
@@ -36,6 +38,8 @@ export default createSchema({
 		recipe,
 		siteConfig,
 		unit,
+		tagsPage,
+		recipesPage,
 		page,
 		navItem
 	])

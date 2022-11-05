@@ -7,4 +7,4 @@ import siteConfig from './siteConfig';
 export default () =>
 	S.list()
 		.title('Ryan Bakes')
-		.items([recipes, siteConfig, pages, ...defaultItems]);
+		.items([siteConfig, recipes, pages, ...defaultItems]);
