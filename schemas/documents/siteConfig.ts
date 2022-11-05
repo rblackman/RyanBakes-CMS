@@ -47,7 +47,9 @@ export default {
 			name: 'homepage',
 			title: 'Homepage',
 			type: 'reference',
-			to: [{ type: 'page' }]
+			to: [{ type: 'page' }],
+			codegen: { required: true },
+			validation: (Rule: Rule<unknown>) => Rule.required()
 		}
 	]
 };
