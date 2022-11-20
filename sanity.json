@@ -16,7 +16,7 @@
 		"@sanity/desk-tool",
 		"@sanity/color-input",
 		"@sanity/vision",
-		"dashboard-widget-vercel"
+		"vercel-deploy"
 	],
 	"parts": [
 		{

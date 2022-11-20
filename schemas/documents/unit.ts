@@ -62,10 +62,19 @@ export default {
 			validation: (Rule: Rule<string>) => Rule.required()
 		},
 		{
-			name: 'exempt',
+			name: 'noUnit',
 			type: 'boolean',
-			title: 'Exempt',
-			description: 'Do not show ingredients.',
+			title: 'No Unit',
+			description: 'Do not show unit.',
+			initialValue: false,
+			codegen: { required: true },
+			validation: (Rule: Rule<string>) => Rule.required()
+		},
+		{
+			name: 'noCount',
+			type: 'boolean',
+			title: 'No Count',
+			description: 'Do not show count.',
 			initialValue: false,
 			codegen: { required: true },
 			validation: (Rule: Rule<string>) => Rule.required()
@@ -82,10 +91,37 @@ export default {
 		select: {
 			name: 'name',
 			type: 'type',
+			system: 'system',
+			display: 'display',
+			noUnit: 'noUnit',
+			noCount: 'noCount',
 			abbreviation: 'abbreviation'
 		},
-		prepare({ name, type: subtitle, abbreviation }: { name: string; type: string; abbreviation: string }) {
-			const title = `${name} (${abbreviation})`;
+		prepare({
+			name,
+			type,
+			system,
+			display,
+			abbreviation,
+			noUnit
+		}: {
+			name: string;
+			type: string;
+			display: string;
+			system: string;
+			abbreviation: string;
+			noUnit: boolean;
+		}) {
+			let title = name;
+			let subtitle: string;
+
+			if (noUnit) {
+				subtitle = '';
+			} else {
+				name += ` ${abbreviation}`;
+				subtitle = `${type} / ${system} / ${display}`;
+			}
+
 			return {
 				title,
 				subtitle,

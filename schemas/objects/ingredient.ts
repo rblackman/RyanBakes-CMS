@@ -54,7 +54,14 @@ export default {
 		},
 		prepare({ name: title, amount, unit, usedInSteps }) {
 			console.log('unit', unit);
-			const subtitle = `${amount}${unit} (Step${usedInSteps.length > 1 ? 's' : ''}: ${usedInSteps.join(', ')})`;
+
+			let subtitle: string;
+			if (usedInSteps) {
+				subtitle = `${amount}${unit} (Step${usedInSteps.length > 1 ? 's' : ''}: ${usedInSteps.join(', ')})`;
+			} else {
+				subtitle = `${amount}${unit} (Not Associated with Step)`;
+			}
+
 			return {
 				title,
 				subtitle,
